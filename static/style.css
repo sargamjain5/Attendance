@@ -1,0 +1,309 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  height: 50px;
+}
+.ncc-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ncc-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d0e5b;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: lighter;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Main Layout */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 80px); /* subtract navbar height */
+  align-items: center;
+  z-index: 0;
+}
+
+/* Left Section */
+.left-section {
+  flex: 1;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Institute Header (Logo + Text Side by Side) */
+.institute-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.iitr-logo {
+  width: 100px;
+  height: auto;
+}
+
+.institute-header h1 {
+  font-size: 35px;
+  color: #1d0e5b;
+  line-height: 1.3;
+}
+
+/* Building Image Aligned to Bottom Right */
+.building-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  max-width: 550px;
+  z-index: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Right Section */
+.right-section {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.portal-title {
+  font-size: 28px;
+  color: red;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+.login-box p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.required {
+  color: red;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.login-btn,
+.admin-btn {
+  flex: 1;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #1d0e5b;
+  color: white;
+}
+
+.admin-btn {
+  background-color: white;
+  color: #1d0e5b;
+  border: 2px solid #1d0e5b;
+}
+
+.forgot {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: right;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for mobile */
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .institute-header {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .login-box {
+    width: 100%;
+  }
+}
+
+/* Attendance Container */
+.attendance-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid #1d0e5b; /* Dark blue border for NCC branding */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Attendance Details Section */
+.attendance-details p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.attendance-details p strong {
+  color: #1d0e5b;
+}
+
+/* Attendance Stats Section */
+.attendance-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.attendance-stats div {
+  text-align: center;
+  margin: 20px;
+}
+
+.attendance-stats h2 {
+  font-size: 48px;
+  color: #1d0e5b;
+  margin-bottom: 5px;
+}
+
+.attendance-stats p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Mark Attendance Button */
+.mark-button {
+  text-align: center;
+}
+
+.mark-button button {
+  background-color: #dc3545; /* Bootstrap danger red */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mark-button button:hover {
+  background-color: #b52a35;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .attendance-container {
+    padding: 20px;
+  }
+  
+  .attendance-stats h2 {
+    font-size: 36px;
+  }
+  
+  .attendance-details p {
+    font-size: 16px;
+  }
+}

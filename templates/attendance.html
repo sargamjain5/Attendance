@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <img src="{{ url_for('static', filename='Assets/NCC_Logo.png') }}" class="logo" alt="NCC"/>
+      <ul class="nav-links">
+        <li><a href="https://ncc.iitr.ac.in/#/about-us">ABOUT</a></li>
+        <li><a href="https://ncc.iitr.ac.in/">HOME</a></li>
+        <li><a class="active" href="#">ATTENDANCE</a></li>
+      </ul>
+      <div class="profile-icon">👤</div>
+    </nav>
+  </header>
+
+  <main class="attendance-container">
+    <div class="attendance-details">
+      <p><strong>NAME:</strong> <span id="name">Loading...</span></p>
+      <p><strong>ENROLLMENT NO:</strong> <span id="enroll">Loading...</span></p>
+      <p><strong>JOINING DATE:</strong> <span id="joining-date">AUGUST 2024</span></p>
+      <p><strong>YEAR:</strong> <span id="year">II</span></p>
+      <p><strong>DATE:</strong> <span id="date">Loading...</span></p>
+    </div>
+
+    <div class="attendance-stats">
+      <div>
+        <h2 id="total-days">0</h2>
+        <p>TOTAL WORKING DAYS</p>
+      </div>
+      <div>
+        <h2 id="present-days">0</h2>
+        <p>PRESENT</p>
+      </div>
+    </div>
+
+    <div class="mark-button">
+      <button onclick="markAttendance()">MARK YOUR ATTENDANCE</button>
+    </div>
+  </main>
+
+  <script>
+    // Fetch user details on load
+    window.onload = async () => {
+      try {
+        const res = await fetch('/api/user-info');
+        if (!res.ok) throw new Error('Failed to fetch user info');
+        const data = await res.json();
+        document.getElementById('name').textContent = data.name;
+        document.getElementById('enroll').textContent = data.enroll;
+        document.getElementById('date').textContent = new Date().toLocaleDateString();
+        document.getElementById('total-days').textContent = data.total_working_days;
+        document.getElementById('present-days').textContent = data.present;
+      } catch (err) {
+        alert(err.message);
+      }
+    };
+
+    // Mark attendance: update on server & UI
+    async function markAttendance() {
+  try {
+    const res = await fetch('/api/mark-attendance', { method: 'POST' });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || 'Could not mark attendance');
+
+    document.getElementById('total-days').textContent = data.total_working_days;
+    document.getElementById('present-days').textContent = data.present;
+    alert(data.message);
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+    
+  </script>
+</body>
+</html>

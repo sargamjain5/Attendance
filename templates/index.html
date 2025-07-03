@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>IIT Roorkee Attendance Portal</title>
+  <!-- Link to CSS using Flask -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <div class="ncc-brand">
+      <!-- Images from static folder -->
+      <img src="{{ url_for('static', filename='Assets/NCC_Logo.png') }}" class="logo" alt="NCC"/>
+      <span class="ncc-text">राष्ट्रीय कैडेट कोर<br>National Cadet Corps</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="https://ncc.iitr.ac.in/#/about-us">About</a></li>
+      <li><a href="https://ncc.iitr.ac.in/">Home</a></li>
+      <li><a class="active" href="#">Attendance</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main-container">
+  <section class="left-section">
+    <div class="institute-header">
+      <img src="{{ url_for('static', filename='Assets/iitr_logo.png') }}" class="iitr-logo" alt="IITR"/>
+      <h1><span>Indian Institute of</span><br/>Technology, Roorkee</h1>
+    </div>
+  </section>
+
+  <section class="right-section">
+    <h2 class="portal-title">Attendance Portal</h2>
+    <div class="login-box">
+      <p>Login with credentials of AIS portal.</p>
+
+      <form id="loginForm">
+        <label for="enroll">Enrollment No. *</label>
+        <input type="text" id="enroll" name="enroll" required />
+
+        <label for="password">Password *</label>
+        <input type="password" id="password" name="password" required />
+
+        <div class="buttons">
+          <button class="login-btn" type="submit">LOG&nbsp;IN</button>
+          <button class="admin-btn" type="button" onclick="window.location.href='/admin'">ADMIN</button>
+        </div>
+        <a href="#" class="forgot">Forgot Password?</a>
+      </form>
+
+    </div>
+  </section>
+</main>
+
+<!-- Link to JS using Flask -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
