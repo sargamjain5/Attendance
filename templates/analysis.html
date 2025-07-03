@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='analysis.css') }}">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="ncc-brand">
+        <img src="{{ url_for('static', filename='Assets/NCC_Logo.png') }}" class="logo" alt="NCC"/>
+        <span class="ncc-text">राष्ट्रीय कैडेट कोर<br>National Cadet Corps</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="https://ncc.iitr.ac.in/#/about-us">About</a></li>
+        <li><a href="https://ncc.iitr.ac.in/">Home</a></li>
+        <li><a class="active" href="#">Attendance</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Attendance on {{ date }}</h2>
+
+    {% if present_students %}
+    <div class="cards-container">
+      {% for student in present_students %}
+      <div class="card">
+        <img src="{{ url_for('static', filename='Assets/user.png') }}" alt="User Icon">
+        <h3>{{ student.name }}</h3>
+        <p>Enrollment: {{ student.enroll }}</p>
+        <span class="status present">P</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-attendance">No students marked present on this date.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
+

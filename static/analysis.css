@@ -1,0 +1,148 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Navbar - matching your main portal */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ncc-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.ncc-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d0e5b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: lighter;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Main container for analysis content */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Heading */
+h2 {
+  margin-bottom: 30px;
+  color: #1d0e5b;
+  font-size: 28px;
+}
+
+/* Cards container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Individual card */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  width: 180px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 2px solid #1d0e5b;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  color: #1d0e5b;
+  margin: 5px 0;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.status.present {
+  display: inline-block;
+  background-color: green;
+  color: white;
+  padding: 6px 10px;
+  margin-top: 8px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.no-attendance {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cards-container {
+    justify-content: center;
+  }
+
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 500px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
